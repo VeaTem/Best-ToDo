@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="shortcut icon" type="image/x-icon" href="images/favicon-120x120.webp">
+    <link rel="stylesheet" href="css/style.min.css">
+</head>
+
+<body class="body">
+    <div class="container">
+        <header class="header">
+            <div class="header-logo">
+                <a class="header-logo__link" href="index.html" target="_blank">Best ToDo</a>
+            </div>
+
+            <input class="header-search" type="text" placeholder="Find your own task:">
+        </header>
+
+        <section class="toDo-filters">
+            <div class="toDo-filters__name">
+                Sort by:
+            </div>
+            <button class="toDo-filters__btn">Completeness</button>
+            <button class="toDo-filters__btn">priority</button>
+        </section>
+
+        <section class="toDo-list">
+            <button id="triggerModal" class="toDo-add">+</button>
+        </section>
+
+
+
+    </div>
+
+
+
+
+    <!-- --------------------------------------------POPUPS---------------------------------------------------- -->
+
+    <div id="modal" class="modal">
+        <div class="modal__inner">
+            <div class="modal__title">ADD ToDo:</div>
+            <form class="modal-form" action="#">
+                <input class="modal-form__input" type="text" maxlength="43" placeholder="Titte:" required>
+                <textarea class="modal-form__textarea" maxlength="250" placeholder="Description:"></textarea>
+                <select class="modal-form__select" name="Priority" required>
+                    <option class="modal-form__select-option" value="">Select priority...</option>
+                    <option class="modal-form__select-option" value="Low">Low</option>
+                    <option class="modal-form__select-option" value="Medium">Medium</option>
+                    <option class="modal-form__select-option" value="High">High</option>
+                </select>
+                <input class="modal-form__input" type="date" name="deadline">
+            </form>
+            <div class="modal__btn-box">
+                <button class="modal__btn modal__btn--cancel" id="cancel">Cancel</button>
+                <button class="modal__btn">Apply</button>
+            </div>
+        </div>
+    </div>
+    <script src="js/main.min.js"></script>
+</body>
+
+</html>
