@@ -1,0 +1,234 @@
+@import "fonts";
+@import "libs";
+@import "vars";
+@import "reset";
+
+//-------------------------------------------------------------
+html {
+  box-sizing: border-box;
+  background-color: darkgray;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+//-------------------------------------------------------------
+
+.body {
+  @extend %Sand-400;
+  font-size: 16px;
+  line-height: 125%;
+  color: #000;
+}
+
+.container {
+  max-width: 1220px;
+  margin: 0 auto;
+}
+
+.header {
+  background-color: rgb(0, 123, 0);
+  color: #fff;
+  padding: 20px 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  &-logo {
+    font-size: 26px;
+    max-width: 135px;
+    width: 100%;
+    margin-right: 25px;
+    @extend %Sand-700;
+    &__link {
+      text-decoration: none;
+      color: inherit;
+    }
+  }
+  &-search {
+    width: 100%;
+    max-width: 1000px;
+    border: 2px solid #ececec;
+    padding: 5px 10px;
+    border-radius: 10px;
+    outline: transparent;
+    color: blueviolet;
+    &::placeholder {
+      text-transform: uppercase;
+      font-size: 10px;
+      letter-spacing: 1px;
+    }
+  }
+}
+
+.toDo-filters {
+  display: flex;
+  align-items: center;
+  padding: 20px 10px;
+  background-color: #c1ffad;
+  text-transform: uppercase;
+  &__btn {
+    margin-left: 10px;
+    text-transform: uppercase;
+    border-radius: 15px;
+    background-color: rgb(255, 250, 103);
+    color: darkcyan;
+    border: none;
+    padding: 5px 10px;
+    box-shadow: 1px 1px 5px black;
+    cursor: pointer;
+    transition: all 0.3s;
+    &:hover {
+      box-shadow: 3px 3px 8px black;
+    }
+    &:active {
+      transform: scale(80%);
+    }
+  }
+}
+
+.toDo-list {
+  min-height: calc(100vh - 145px);
+  background-color: #ececec;
+  padding: 20px 10px;
+  position: relative;
+}
+.toDo-add {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  bottom: 25px;
+  right: 25px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  font-size: 40px;
+  border: none;
+  color: darkcyan;
+  background-color: #c1ffad;
+  box-shadow: 1px 1px 10px 2px darkgray;
+  cursor: pointer;
+  transition: all 0.3s;
+  &:hover {
+    box-shadow: 3px 3px 5px 4px darkgray;
+  }
+  &:active {
+    transform: scale(80%);
+  }
+}
+
+.modal {
+  position: fixed;
+  visibility: hidden;
+  opacity: 0;
+  z-index: 5;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  transition: all 0.8s ease 0s;
+  &.open {
+    visibility: visible;
+    opacity: 1;
+    .modal__inner {
+      transform: translateX(0) rotate(0);
+    }
+  }
+  &__inner {
+    padding: 10px;
+    background-color: #fff;
+    max-width: 500px;
+    width: 100%;
+    box-shadow: 1px 1px 15px 5px white;
+    height: 450px;
+    border-radius: 15px;
+    background-color: rgba(0, 0, 0, 0.5);
+    transition: all 0.8s ease 0s;
+    transform: translateX(-250%) rotate(360deg);
+  }
+  &__title {
+    @extend %Sand-700;
+    font-size: 25px;
+    margin-bottom: 25px;
+    margin-top: 15px;
+  }
+  &-form {
+    &__input {
+      display: block;
+      width: 100%;
+      margin: 10px 0;
+      padding: 10px;
+      font-size: 16px;
+      border: 1px solid black;
+      border-radius: 15px;
+      outline-color: #c1ffad;
+      &::placeholder {
+        font-size: 15px;
+      }
+    }
+    &__textarea {
+      display: block;
+      width: 100%;
+      height: 155px;
+      resize: none;
+      margin: 10px 0;
+      padding: 10px;
+      font-size: 16px;
+      border: 1px solid black;
+      border-radius: 15px;
+      outline-color: #c1ffad;
+      &:active {
+        outline-color: #c1ffad;
+      }
+      &::placeholder {
+        font-size: 15px;
+      }
+    }
+    &__select {
+      display: block;
+      width: 100%;
+      margin: 10px 0;
+      padding: 10px;
+      font-size: 16px;
+      border: 1px solid black;
+      border-radius: 15px;
+      outline-color: #c1ffad;
+      &::placeholder {
+        font-size: 15px;
+      }
+    }
+  }
+  &__btn {
+    padding: 5px;
+    width: 80px;
+    border: none;
+    background-color: #c1ffad;
+    color: darkcyan;
+    box-shadow: 3px 3px 2px black;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s;
+    &:hover {
+      box-shadow: 6px 6px 5px black;
+    }
+    &:active {
+      transform: scale(80%);
+    }
+    & + .modal__btn {
+      margin-left: 20px;
+    }
+    &-box {
+      margin-top: 20px;
+      display: flex;
+      justify-content: end;
+      align-items: center;
+    }
+  }
+}
